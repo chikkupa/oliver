@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JQuery API client stub.</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <h3>Create Application</h3>
+    <form >
+        Address <input id="address">
+        Application Id <input id="applicationId">
+        Company Name <input id="companyName">
+        Contact Person <input id="contactPerson">
+        Phone Number <input id="phoneNumber">
+        <button onclick="createApplication()">Submit</button
+    <form>
+    <div id="target"></div>
+  </body>
+
+  <script>
+
+  function createApplication(){
+      var application = {
+          "address" : $("#address").val(),
+          "applicationId" : $("#applicationId").val(),
+          "companyName" : $("#companyName").val(),
+          "contactPerson" : $("#contactPerson").val(),
+          "phoneNumber" : $("#phoneNumber").val()
+      }
+      $.ajax({
+            url: 'http://humapi-firestore.appspot.com/application/',
+            type: 'post',
+            dataType: 'jsonp',
+            headers: {          
+                Accept: "application/json",         
+                "Content-Type": "application/json"   
+            },
+            success: function (data) {
+                $('#target').html(JSON.stringify(data));
+            },
+            data: JSON.stringify(application)
+        });
+  }
+  </script>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JQuery API client stub.</title>
+  </head>
+  <body>
+<!-- This page has similar functionality as the page
+     http://humapi-firestore.appspot.com/swagger-ui.html
+     But it is not the same. That page has html forms, and the correct parameter as input.
+     But you have to put the full formatted JSON object as input.
+     So here you shall put input fields for each JSON field and make a fully correctly formatted
+     JSON object out of the form fields.
+
+     The mentiond page can be use for testing purposes.
+     You can and should create real values that will be stored into the database.
+     You will get the data with the forms provided by that site.
+
+     So the task is to provide a similar functionality as that page.
+     But the user can put field values instead of a JSON object.
+     The page shall contain only two sample forms, not all forms that are on that page.
+-->
+
+<!-- This form send the input parameter as header parameter.
+	That has to be dynamic, because the input fields may either contain
+	values for header parameter or values for a JSON obect in the message body.
+	So you have to distinguish between header input and JSON object fields.
+
+	Both forms have to use the same javascript function (not two).
+ -->
+<form onsubmit="return doSubmit(<dynamic data>);" method="GET" name="myform1">
+ <label for="applicationId">applicationId (applicationId as String)</label>
+ <input type="text" id="applicationId" name="applicationId">
+ <input type="text" id="userid" name="userid">
+  <br>
+ <button type="submit">Submit</button>
+</form>
+<!-- Result of above submit form.  -->
+<p>
+<!-- Possible error messages.  -->
+</p>
+<table>
+<tr><th>Keys</th><th>Value</th></tr>
+<tr>
+<td>data key</td><td>data value</td>
+</tr>
+</table>
+
+<!-- This form send the input parameter as JSON body in the message.
+	As above, that has to be dynamic, because the input fields may either contain
+	values for header parameter or values for a JSON obect in the message body.
+	So you have to distinguish between header input and JSON object fields.
+ -->
+<form onsubmit="return doSubmit(<dynamic data>);" method="POST" name="myform2">
+ <label for="id"> id of data</label>
+ <input type="text" id="id" name="id">
+ <label for="username"> Username</label>
+ <input type="text" id="username" name="username">
+ <!-- Continue with some other values listed here
+
+ -->
+    firstName
+    lastName
+    email
+    password
+    phone
+    userStatus
+
+ <br>
+ <button type="submit">Submit</button>
+</form>
+<!-- Result of above submit form.  -->
+<p>
+<!-- Possible error messages.  -->
+</p>
+<table>
+<tr><th>Keys</th><th>Value</th></tr>
+<tr>
+<td>data key</td><td>data value</td>
+</tr>
+</table>
+
+    <!-- This is the function to do. It must be feasable for any html form, as example two forms above. -->
+    <script>
+    function doSomething(<dynamic data>) {
+    var request = new XMLHttpRequest();
+    jqrequest.open('<http method>', '<url coming from parameter>', true);
+    jqrequest.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');//might be extended by the form data.
+    jqrequest.send(data);
+    }
+    </script>
+  </body>
+</html>
